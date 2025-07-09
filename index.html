@@ -2,31 +2,103 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mrs. DK - Home</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mrs. DK - Beranda</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8f0;
+    }
+
+    header {
+      background-color: #b23c17;
+      padding: 15px 0;
+      text-align: center;
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      background-color: #b23c17;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 14px 20px;
+      color: white;
+      text-decoration: none;
+    }
+
+    nav ul li a:hover {
+      background-color: #a32c10;
+    }
+
+    /* Dropdown */
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 48px;
+      background-color: #b23c17;
+      min-width: 160px;
+      z-index: 1;
+    }
+
+    nav ul li:hover ul {
+      display: block;
+    }
+
+    nav ul li ul li {
+      width: 100%;
+    }
+
+    main {
+      padding: 30px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #f3f3f3;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>Mrs. DK</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="tugas_brand_desc.html">Tugas</a></li>
-        <li><a href="about.html">Tentang Kami</a></li>
-        <li><a href="contact.html">Kontak</a></li>
-      </ul>
-    </nav>
   </header>
 
+  <nav>
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li>
+        <a href="#">Tugas ▾</a>
+        <ul>
+          <li><a href="tugas_brand_desc.html">Tugas Brand Description/a></li>
+          <li><a href="mie-nyemek.html">Tugas Ide Konten</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">Tentang Kami</a></li>
+      <li><a href="contact.html">Kontak</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <section class="intro">
-      <h2>Selamat Datang di Mrs. DK</h2>
-      <p>
-        Mrs. DK adalah brand kuliner rumahan yang menghadirkan cita rasa autentik dan menggugah selera melalui sajian aneka mie yang variatif dan penuh rasa.
-        Menyediakan dua menu andalan yaitu <strong>Mie Goreng</strong> dan <strong>Mie Nyemek</strong>, dengan topping pilihan seperti <strong>sosis, bakso, dan daging</strong>.
-      </p>
-    </section>
+    <h2>Selamat Datang di Mrs. DK</h2>
+    <p>
+      Nikmati sajian Mie Goreng dan Mie Nyemek dengan rasa khas rumahan,
+      bahan lokal, porsi besar, dan pilihan level pedas sesuai selera!  
+    </p>
   </main>
 
   <footer>
