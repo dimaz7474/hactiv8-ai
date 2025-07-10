@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Most Common Payment Methods</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f8fa;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .summary-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .section-title {
+      color: #2980b9;
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .description {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .chart-bar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .label {
+      width: 100px;
+      font-weight: bold;
+    }
+
+    .bar {
+      height: 24px;
+      border-radius: 8px;
+      margin-left: 10px;
+      background-color: #3498db;
+      transition: width 0.5s ease;
+    }
+
+    .percentage {
+      margin-left: 10px;
+      font-size: 14px;
+      color: #555;
+      width: 50px;
+    }
+
+    .footer-note {
+      font-size: 14px;
+      font-style: italic;
+      color: #777;
+      text-align: center;
+      margin-top: 30px;
+    }
+    .attachment {
+      background-color: #e9f3ff;
+      border: 1px solid #3498db;
+      padding: 15px;
+      margin: 40px auto;
+      text-align: center;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 6px;
+    }
+
+    .attachment a {
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #3498db;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .attachment a:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Most Common Payment Methods</h1>
+
+  <div class="summary-container">
+    <div class="section-title">Overview</div>
+    <div class="description">
+      Based on the provided sales data, the most common payment method is <strong>QRIS</strong>.
+      While <strong>Transfer</strong> and <strong>Tunai (Cash)</strong> are also used, QRIS accounts for the vast majority of transactions.
+      <br /><br />
+      For example, on April 1, 2025, QRIS was used for 26 out of 30 transactions. This trend remains consistent across April, May, and June, indicating strong reliance on QRIS.
+    </div>
+
+    <div class="section-title">Transaction Breakdown</div>
+
+    <div id="chart-container"></div>
+
+    <div class="footer-note">
+      Data reflects transaction records from April to June 2025.
+    </div>
+  </div>
+
+  <script>
+    // Data input
+    const paymentData = [
+      { method: "QRIS", count: 661, color: "#1abc9c" },
+      { method: "Transfer", count: 4, color: "#3498db" },
+      { method: "Tunai", count: 3, color: "#e67e22" }
+    ];
+
+    const totalCount = paymentData.reduce((sum, item) => sum + item.count, 0);
+
+    const container = document.getElementById("chart-container");
+
+    paymentData.forEach(item => {
+      const percentage = ((item.count / totalCount) * 100).toFixed(1);
+
+      const barWrapper = document.createElement("div");
+      barWrapper.className = "chart-bar";
+
+      const label = document.createElement("div");
+      label.className = "label";
+      label.textContent = item.method;
+
+      const bar = document.createElement("div");
+      bar.className = "bar";
+      bar.style.backgroundColor = item.color;
+      bar.style.width = `${percentage}%`;
+
+      const percentText = document.createElement("div");
+      percentText.className = "percentage";
+      percentText.textContent = `${percentage}%`;
+
+      barWrapper.appendChild(label);
+      barWrapper.appendChild(bar);
+      barWrapper.appendChild(percentText);
+
+      container.appendChild(barWrapper);
+    });
+  </script>
+  
+  <div class="attachment">
+    📎 <strong>Lampiran PDF:</strong><br><br>
+    <a href="https://github.com/dimaz7474/hactiv8-ai/blob/main/file/laundry-sales.pdf" target="_blank">Unduh Data Penjualan PDF</a>
+  </div>
+<div style="margin: 20px;">
+    <a href="index.html" style="text-decoration: none; color: #b23c17; font-weight: bold;">← Kembali ke Beranda</a>
+  </div>
+</body>
+</html>

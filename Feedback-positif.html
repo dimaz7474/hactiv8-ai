@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer Feedback Highlights</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f9fc;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .feedback-container {
+      max-width: 800px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: none; /* initially hidden */
+    }
+
+    .feedback-item {
+      margin-bottom: 25px;
+      border-left: 5px solid #3498db;
+      padding-left: 15px;
+      transition: background-color 0.3s;
+    }
+
+    .feedback-item:hover {
+      background-color: #f0f8ff;
+    }
+
+    .category {
+      font-weight: bold;
+      color: #2980b9;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .details {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .testimonies {
+      margin-top: 10px;
+      color: #7f8c8d;
+      font-style: italic;
+    }
+
+    button {
+      display: block;
+      margin: 30px auto 0;
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+    .attachment {
+      background-color: #e9f3ff;
+      border: 1px solid #3498db;
+      padding: 15px;
+      margin: 40px auto;
+      text-align: center;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 6px;
+    }
+
+    .attachment a {
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #3498db;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .attachment a:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Top Customer Feedback</h1>
+
+  <div class="feedback-container" id="feedback-list">
+    <!-- Feedback will be rendered here -->
+  </div>
+
+  <button id="toggleBtn" onclick="toggleFeedback()">Show Feedback</button>
+
+  <script>
+    const feedbackData = [
+      {
+        category: "Quality of Laundry Results",
+        details: "Customers consistently praise the laundry for being clean, fragrant, and neatly folded or ironed.",
+        testimonies: [
+          "“Cucian bersih banget, wanginya juga mantap!”",
+          "“Cucian bersih, lipatan rapi”",
+          "“Hasil setrika rapi”"
+        ]
+      },
+      {
+        category: "Speed of Service/Delivery",
+        details: "Many customers appreciate the quick delivery.",
+        testimonies: ["“Pengiriman cepat”"]
+      },
+      {
+        category: "Professionalism and Friendliness of Staff",
+        details: "The staff are frequently described as responsive, friendly, and professional.",
+        testimonies: ["“Pegawai responsif, ramah”", "“Stafnya ramah”"]
+      },
+      {
+        category: "Ability to Remove Stubborn Stains",
+        details: "The laundry's expertise in removing tough stains is a point of satisfaction.",
+        testimonies: ["“Noda bandel di kemeja putih saya hilang. Puas sekali!”"]
+      },
+      {
+        category: "Convenience of Services",
+        details: "Customers value the ease of the pickup and delivery service.",
+        testimonies: []
+      },
+      {
+        category: "Good Value for Money",
+        details: "Customers feel that the price matches the quality of service received.",
+        testimonies: []
+      },
+      {
+        category: "Loyalty and Consistency",
+        details: "Some customers express long-term satisfaction, indicating loyalty over time.",
+        testimonies: []
+      },
+      {
+        category: "Suitability for Specific Needs",
+        details: "The service suits various laundry needs, including office and daily clothes.",
+        testimonies: []
+      }
+    ];
+
+    function toggleFeedback() {
+      const container = document.getElementById("feedback-list");
+      const btn = document.getElementById("toggleBtn");
+
+      if (container.style.display === "none" || container.style.display === "") {
+        container.style.display = "block";
+        btn.textContent = "Hide Feedback";
+        renderFeedback(); // only render once when shown
+      } else {
+        container.style.display = "none";
+        btn.textContent = "Show Feedback";
+      }
+    }
+
+    let isRendered = false;
+
+    function renderFeedback() {
+      if (isRendered) return; // only render once
+
+      const container = document.getElementById("feedback-list");
+
+      feedbackData.forEach(item => {
+        const feedbackDiv = document.createElement("div");
+        feedbackDiv.className = "feedback-item";
+
+        const category = document.createElement("div");
+        category.className = "category";
+        category.textContent = item.category;
+
+        const details = document.createElement("div");
+        details.className = "details";
+        details.textContent = item.details;
+
+        const testimonies = document.createElement("div");
+        testimonies.className = "testimonies";
+        testimonies.innerHTML = item.testimonies.join("<br>");
+
+        feedbackDiv.appendChild(category);
+        feedbackDiv.appendChild(details);
+        if (item.testimonies.length > 0) {
+          feedbackDiv.appendChild(testimonies);
+        }
+
+        container.appendChild(feedbackDiv);
+      });
+
+      isRendered = true;
+    }
+  </script>
+   <div class="attachment">
+    📎 <strong>Lampiran PDF:</strong><br><br>
+    <a href="https://github.com/dimaz7474/hactiv8-ai/blob/main/file/HasilAnalisisFeedbackPelangganLaundry.pdf" target="_blank">Unduh Hasil Analisis Feedback Pelanggan Laundry PDF</a>
+  </div>
+  <div style="margin: 20px;">
+    <a href="index.html" style="text-decoration: none; color: #b23c17; font-weight: bold;">← Kembali ke Beranda</a>
+  </div>
+</body>
+</html>

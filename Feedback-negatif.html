@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Negative Feedback Summary</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fef9f9;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #c0392b;
+    }
+
+    .feedback-container {
+      max-width: 850px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: none;
+    }
+
+    .feedback-item {
+      margin-bottom: 25px;
+      border-left: 5px solid #e74c3c;
+      padding-left: 15px;
+      background-color: #fff5f5;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    .feedback-item:hover {
+      background-color: #ffeaea;
+    }
+
+    .category {
+      font-weight: bold;
+      color: #c0392b;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .details {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .complaints {
+      margin-top: 10px;
+      color: #7f8c8d;
+      font-style: italic;
+      font-size: 15px;
+    }
+
+    button {
+      display: block;
+      margin: 15px auto 0;
+      padding: 10px 20px;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #c0392b;
+    }
+
+    .attachment {
+      background-color: #e9f3ff;
+      border: 1px solid #3498db;
+      padding: 15px;
+      margin: 40px auto;
+      text-align: center;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 6px;
+    }
+
+    .attachment a {
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #3498db;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .attachment a:hover {
+      background-color: #2980b9;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <h1>Key Areas of Negative Customer Feedback</h1>
+
+  <div class="feedback-container" id="negative-feedback">
+    <!-- Feedback will be rendered here -->
+  </div>
+
+  <button id="showBtn" onclick="showNegativeFeedback()">Show Negative Feedback</button>
+  <button id="hideBtn" onclick="hideNegativeFeedback()" style="display: none;">Hide Negative Feedback</button>
+
+  <script>
+    const negativeFeedback = [
+      {
+        category: "Service Speed and Delays",
+        details: "Many customers complain about slow laundry completion and delivery, even for express services. This is the most urgent area for improvement and greatly affects customer trust.",
+        complaints: [
+          "“Cucian lama selesai”",
+          "“Pengiriman tidak sesuai estimasi”",
+          "“Janji express tidak sesuai (tetap lama)”",
+          "“Minta cuci ekspres, tapi tetep lama sampainya”",
+          "April 2025 reviews dominated by words like “lama” and “kurang”"
+        ]
+      },
+      {
+        category: "Slow Admin and Customer Service Responsiveness",
+        details: "Customers report slow responses when contacting admin or customer service, particularly through WhatsApp.",
+        complaints: [
+          "“Admin lambat membalas WA”"
+        ]
+      },
+      {
+        category: "Inconsistency in Service Quality",
+        details: "Customers experience different levels of service. Some complain about changing features like perfume without notice, and rare but present cases of clothes being damaged.",
+        complaints: [
+          "“Tidak ada informasi jika parfum berubah”",
+          "“Tidak bisa pilih aroma parfum seperti dulu”",
+          "“Baju luntur atau rusak (walau jarang)”"
+        ]
+      }
+    ];
+
+    let isRendered = false;
+
+    function showNegativeFeedback() {
+      const container = document.getElementById("negative-feedback");
+      container.style.display = "block";
+      document.getElementById("showBtn").style.display = "none";
+      document.getElementById("hideBtn").style.display = "inline-block";
+
+      if (!isRendered) {
+        negativeFeedback.forEach(item => {
+          const feedbackDiv = document.createElement("div");
+          feedbackDiv.className = "feedback-item";
+
+          const category = document.createElement("div");
+          category.className = "category";
+          category.textContent = item.category;
+
+          const details = document.createElement("div");
+          details.className = "details";
+          details.textContent = item.details;
+
+          const complaints = document.createElement("div");
+          complaints.className = "complaints";
+          complaints.innerHTML = item.complaints.join("<br>");
+
+          feedbackDiv.appendChild(category);
+          feedbackDiv.appendChild(details);
+          feedbackDiv.appendChild(complaints);
+
+          container.appendChild(feedbackDiv);
+        });
+        isRendered = true;
+      }
+    }
+
+    function hideNegativeFeedback() {
+      document.getElementById("negative-feedback").style.display = "none";
+      document.getElementById("showBtn").style.display = "inline-block";
+      document.getElementById("hideBtn").style.display = "none";
+    }
+  </script>
+
+    <div class="attachment">
+    📎 <strong>Lampiran PDF:</strong><br><br>
+    <a href="https://github.com/dimaz7474/hactiv8-ai/blob/main/file/HasilAnalisisFeedbackPelangganLaundry.pdf" target="_blank">Unduh Hasil Analisis Feedback Pelanggan Laundry PDF</a>
+  </div>
+  <div style="margin: 20px;">
+    <a href="index.html" style="text-decoration: none; color: #b23c17; font-weight: bold;">← Kembali ke Beranda</a>
+  </div>
+
+</body>
+</html>
