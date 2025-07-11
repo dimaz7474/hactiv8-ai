@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poster Promosi Mr. DK</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial Black', sans-serif;
+      background: linear-gradient(45deg, #ff0000, #ffff00);
+      color: #fff;
+    }
+
+    .poster {
+      width: 210mm;
+      height: 297mm;
+      box-sizing: border-box;
+      padding: 30px;
+      background: linear-gradient(to bottom, #ff0000, #ffd700);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .title {
+      font-size: 32px;
+      text-align: center;
+      color: #fff;
+      text-shadow: 2px 2px #000;
+    }
+
+    .image-container {
+      width: 100%;
+      height: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      max-height: 100%;
+      border: 5px solid #fff;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .cta {
+      font-size: 22px;
+      background: #000;
+      padding: 10px 20px;
+      border-radius: 10px;
+      color: #fff700;
+      margin-top: 20px;
+      box-shadow: 0 0 10px #000;
+      text-align: center;
+    }
+
+    .halal-logo {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      width: 70px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .poster {
+        width: 100vw;
+        height: auto;
+      }
+      .attachment {
+      background-color: #e9f3ff;
+      border: 1px solid #3498db;
+      padding: 15px;
+      margin: 40px auto;
+      text-align: center;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 6px;
+    }
+
+    .attachment a {
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #3498db;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .attachment a:hover {
+      background-color: #2980b9;
+    }
+    }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <div class="title">🔥 Mie Goreng & Mie Nyemek Paling Gokil di Kota! 🔥</div>
+    <div class="image-container">
+      <img id="mieImage" src="https://i.imgur.com/qnpbexK.png" alt="Mie Menggoda">
+    </div>
+    <div class="cta">Pesan Sekarang via WhatsApp – <a href="https://wa.me/6282189606233" style="color: #fff700; text-decoration: none;">0821-8960-6233</a></div>
+    <img class="halal-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Halal_logo.svg/2048px-Halal_logo.svg.png" alt="Halal">
+  </div>
+
+  <script>
+    // JavaScript opsional jika ingin mengganti gambar secara dinamis
+    function updateImage(url) {
+      document.getElementById('mieImage').src = url;
+    }
+
+    // Contoh penggunaan:
+    // updateImage('https://example.com/miebaru.jpg');
+  </script>
+    <div class="attachment">
+    📎 <strong>Lampiran PDF:</strong><br><br>
+    <a href="https://github.com/dimaz7474/hactiv8-ai/blob/main/file/poster.png" target="_blank">Poster</a>
+  </div>
+<div style="margin: 20px;">
+    <a href="index.html" style="text-decoration: none; color: #b23c17; font-weight: bold;">← Kembali ke Beranda</a>
+  </div>
+</body>
+</html>
